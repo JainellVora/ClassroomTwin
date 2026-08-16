@@ -1,34 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CampusConnect — SAKEC School Collaboration Platform</title>
   <meta name="description" content="CampusConnect brings classes, assignments, resources, chat, and video meetings together for SAKEC students and teachers.">
-  <meta name="theme-color" content="#8b5cf6">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#e8702a">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
-  <!-- Atmospheric background -->
-  <div id="bg-blobs" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="blob blob-4"></div>
-  </div>
-
-  <!-- App mount -->
   <div id="app" role="main"></div>
-
-  <!-- Modal overlay -->
+  <div id="auth-overlay" class="auth-overlay hidden"></div>
   <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true"></div>
-
-  <!-- Toast notifications -->
   <div id="toast-container" aria-live="polite" aria-atomic="false"></div>
-
   <script src="app.js"></script>
 </body>
 </html>
