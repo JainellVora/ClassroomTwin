@@ -260,7 +260,12 @@ const Router={
   addPoll(fn,ms){const id=setInterval(fn,ms);this.polls.push(id);},
   _render(){
     const app=document.getElementById('app');
-    if(!Auth.ok){app.innerHTML=Pages.hero();initSpotlight();bindHero();return;}
+    if(this.page==='hero'||!Auth.ok){
+      app.innerHTML=Pages.hero();
+      initSpotlight();
+      bindHero();
+      return;
+    }
     switch(this.page){
       case'dashboard':app.innerHTML=Pages.dashboard();break;
       case'class':app.innerHTML=Pages.classTeam(this.params.cid,this.params.tab||'stream');if(this.params.tab==='chat')startChatPoll(this.params.cid);break;
@@ -359,7 +364,7 @@ hero(){
         <button data-hero-tab="sdg">SDG Goals</button>
         <button data-hero-tab="contact">Contact</button>
       </div>
-      <div class="hero-nav-right"><button id="hero-signup-btn">Sign Up</button></div>
+      <div class="hero-nav-right"><button id="hero-signup-btn">${Auth.ok?'Switch Account':'Sign Up'}</button></div>
       <button id="mob-menu-hero" style="background:none;border:none;color:#fff;cursor:pointer;padding:8px" class="md-hidden">${I.menu}</button>
     </nav>
     <div class="hero-heading">
@@ -373,7 +378,7 @@ hero(){
     </div>
     <div class="hero-br hero-anim hero-fade" style="animation-delay:.85s">
       <p>Built for SAKEC. Inspired by SDG 4 (Quality Education) and SDG 10 (Reduced Inequalities). Every critical action works asynchronously, on any device.</p>
-      <button class="hero-cta" id="hero-signin-btn">Sign In</button>
+      <button class="hero-cta" id="hero-signin-btn">${Auth.ok?'Open Dashboard →':'Sign In'}</button>
     </div>
   </section>`;
 },
@@ -826,9 +831,14 @@ function bindHero(){
   
   // Sign In / Sign Up buttons
   document.getElementById('hero-signin-btn')?.addEventListener('click',()=>{
-    overlay.innerHTML=Pages.login();
-    overlay.classList.remove('hidden');
-    bindAuthForm();
+    if(Auth.ok){
+      if(window._spotlightCleanup)window._spotlightCleanup();
+      Router.go('dashboard');
+    } else {
+      overlay.innerHTML=Pages.login();
+      overlay.classList.remove('hidden');
+      bindAuthForm();
+    }
   });
   document.getElementById('hero-signup-btn')?.addEventListener('click',()=>{
     overlay.innerHTML=Pages.register();
@@ -934,7 +944,7 @@ function bindGlobal(){
     if(t?.startsWith('class:')){const[,cid,tab]=t.split(':');Router.go('class',{cid,tab});}
     else Router.go(t||'dashboard');
   });
-  document.querySelectorAll('#logout-btn').forEach(b=>b.addEventListener('click',()=>{Auth.logout();toast('Signed out','info');Router.go('login');}));
+  document.querySelectorAll('#logout-btn').forEach(b=>b.addEventListener('click',()=>{Auth.logout();toast('Signed out','info');Router.go('hero');}));
   document.getElementById('lowbw-btn')?.addEventListener('click',toggleLowBw);
   document.getElementById('notif-bell')?.addEventListener('click',()=>Router.go('notifs'));
   
@@ -1443,7 +1453,7 @@ function init(){
   seed();
   Theme.init();
   Auth.init();
-  Router.go(Auth.ok?'dashboard':'hero');
+  Router.go('hero');
   window.addEventListener('resize',()=>{if(window.innerWidth>768)document.getElementById('sidebar')?.classList.remove('open');});
 }
 
