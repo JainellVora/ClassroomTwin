@@ -1,6 +1,6 @@
 "use strict";
 // ================================================================
-//  CampusConnect v2 — app.js
+//  ClassroomTwin v2 — app.js
 //  SPA: hero login + spotlight, theme, fixed upload, fixed meet,
 //  better admin, 6 public API integrations
 // ================================================================
@@ -291,7 +291,7 @@ function sidebar(active=''){
   return `<aside class="sidebar" id="sidebar">
     <div class="sidebar-logo" data-nav="dashboard" style="cursor:pointer">
       <div class="sidebar-logo-icon">${I.logo}</div>
-      <div class="sidebar-logo-text">CampusConnect</div>
+      <div class="sidebar-logo-text">ClassroomTwin</div>
     </div>
     <nav class="nav-section">
       <div class="nav-label">Menu</div>
@@ -350,7 +350,7 @@ hero(){
     <nav class="hero-nav">
       <div class="hero-nav-logo" id="hero-logo-btn">
         <svg width="26" height="26" viewBox="0 0 256 256" fill="#fff"><path d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z"/></svg>
-        <span>CampusConnect</span>
+        <span>ClassroomTwin</span>
       </div>
       <div class="hero-nav-pill" id="hero-nav-pill">
         <button data-hero-tab="about" class="active">About</button>
@@ -369,7 +369,7 @@ hero(){
       </h1>
     </div>
     <div class="hero-bl hero-anim hero-fade" style="animation-delay:.7s">
-      <p>CampusConnect unifies classes, assignments, chat, and video meetings — so every student can participate, whether they're in the room or across the city.</p>
+      <p>ClassroomTwin unifies classes, assignments, chat, and video meetings — so every student can participate, whether they're in the room or across the city.</p>
     </div>
     <div class="hero-br hero-anim hero-fade" style="animation-delay:.85s">
       <p>Built for SAKEC. Inspired by SDG 4 (Quality Education) and SDG 10 (Reduced Inequalities). Every critical action works asynchronously, on any device.</p>
@@ -389,12 +389,12 @@ heroModal(type){
   let body = '';
   if (type === 'about') {
     body = `
-      <div style="font-size:22px;font-weight:800;margin-bottom:8px;color:var(--t1)">About CampusConnect</div>
+      <div style="font-size:22px;font-weight:800;margin-bottom:8px;color:var(--t1)">About ClassroomTwin</div>
       <p style="color:var(--t2);font-size:14px;line-height:1.7;margin-bottom:14px">
         <strong>"Microsoft Teams, redesigned for how a school actually runs."</strong>
       </p>
       <p style="color:var(--t3);font-size:13px;line-height:1.7;margin-bottom:18px">
-        Built specifically for Shah & Anchor Kutchhi Engineering College (SAKEC). CampusConnect brings class announcements, assignments, textbook resources, live chat, and video meetings together under one unified platform.
+        Built specifically for Shah & Anchor Kutchhi Engineering College (SAKEC). ClassroomTwin brings class announcements, assignments, textbook resources, live chat, and video meetings together under one unified platform.
       </p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
         <div style="padding:14px;background:var(--glass-1);border:1px solid var(--glass-b);border-radius:var(--r-m)">
@@ -473,7 +473,7 @@ heroModal(type){
         <div style="padding:16px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:var(--r-m)">
           <div style="font-weight:700;color:var(--emerald-l);margin-bottom:4px;font-size:15px">🎯 SDG 4: Quality Education</div>
           <div style="font-size:13px;color:var(--t2);line-height:1.6">
-            Ensure inclusive and equitable quality education. CampusConnect guarantees that physical absence never prevents learning by making materials, assignments, and discussions fully accessible anytime.
+            Ensure inclusive and equitable quality education. ClassroomTwin guarantees that physical absence never prevents learning by making materials, assignments, and discussions fully accessible anytime.
           </div>
         </div>
         <div style="padding:16px;background:rgba(232,112,42,0.08);border:1px solid rgba(232,112,42,0.25);border-radius:var(--r-m)">
@@ -491,7 +491,7 @@ heroModal(type){
     body = `
       <div style="font-size:22px;font-weight:800;margin-bottom:8px;color:var(--t1)">Contact & Helpdesk</div>
       <p style="color:var(--t3);font-size:13.5px;margin-bottom:16px">
-        CampusConnect is developed for Shah & Anchor Kutchhi Engineering College.
+        ClassroomTwin is developed for Shah & Anchor Kutchhi Engineering College.
       </p>
       <div style="padding:16px;background:var(--glass-1);border:1px solid var(--glass-b);border-radius:var(--r-m);margin-bottom:20px;font-size:13px;color:var(--t2);line-height:1.8">
         <div>📍 <strong>Address:</strong> Mahavir Education Trust Chowk, W.T. Patil Marg, Chembur, Mumbai 400088</div>
@@ -521,7 +521,7 @@ heroModal(type){
 
 login(){
   return `<div class="auth-card">
-    <div class="auth-logo"><div class="auth-logo-icon">${I.logo}</div><span class="auth-logo-text">CampusConnect</span></div>
+    <div class="auth-logo"><div class="auth-logo-icon">${I.logo}</div><span class="auth-logo-text">ClassroomTwin</span></div>
     <p class="auth-tagline">Your school, <strong>all in one place</strong>.<br>Classes · Assignments · Chat · Video Meetings</p>
     <form id="login-form">
       <div class="form-group"><label class="form-label">Email Address</label><input id="l-email" type="email" class="form-input" placeholder="you@sakec.ac.in" autocomplete="email"></div>
@@ -541,7 +541,7 @@ login(){
 
 register(){
   return `<div class="auth-card">
-    <div class="auth-logo"><div class="auth-logo-icon">${I.logo}</div><span class="auth-logo-text">CampusConnect</span></div>
+    <div class="auth-logo"><div class="auth-logo-icon">${I.logo}</div><span class="auth-logo-text">ClassroomTwin</span></div>
     <p class="auth-tagline">Join your school's digital campus.<br><strong>Only @sakec.ac.in emails.</strong></p>
     <form id="reg-form">
       <div class="form-group"><label class="form-label">Full Name</label><input id="r-name" type="text" class="form-input" placeholder="Your full name"></div>
@@ -1155,7 +1155,7 @@ function bindGlobal(){
   });
   document.getElementById('copy-meet-btn')?.addEventListener('click',e=>{
     const code=e.currentTarget.dataset.code;
-    navigator.clipboard.writeText('https://meet.jit.si/campusconnect-'+code).then(()=>toast('Meeting link copied!','success'));
+    navigator.clipboard.writeText('https://meet.jit.si/classroomtwin-'+code).then(()=>toast('Meeting link copied!','success'));
   });
 
   // Admin actions
@@ -1216,7 +1216,7 @@ function launchJitsi(code,className){
   if(!container)return;
   lobby.style.display='none';
   container.style.display='block';
-  const roomName='campusconnect-'+code;
+  const roomName='classroomtwin-'+code;
   const u=Auth.user;
   if(typeof JitsiMeetExternalAPI==='undefined'){
     container.innerHTML=`<div style="padding:40px;text-align:center;background:var(--glass-1);border-radius:var(--r-xl);height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center">
